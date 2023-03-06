@@ -1,26 +1,22 @@
+import { cliente } from "./cliente.js";
+import { cuentaCorriente } from "./cuentaCorriente.js";
 
 
-const cliente1 = new cliente();
+
+const cuenta1 = new cuentaCorriente(1000, "321", "buga");
+const cuenta2 = new cuentaCorriente(500, "546", "cali");
+const cuenta3 = new cuentaCorriente(500, "546", "cali");
+const cliente1 = new cliente("camilo", "12345", cuenta1);
 
 
-cliente1.nombre = "andrea";
-cliente1.cedula = "123456"
-cliente1.cuentaCorriente = new cuentaCorriente();
-    
-cliente1.cuentaCorriente.numero = "12345",
-cliente1.cuentaCorriente.saldo = 1000,
-cliente1.cuentaCorriente.agencia = "buga"
+cliente1.cuentaCorriente = cuenta1;
 
 
 let saldo = cliente1.cuentaCorriente.verSaldo();
-
 console.log("el saldo actual es: " + saldo);
-
-console.log(cliente1.cuentaCorriente.depositoEnCuenta(500)); 
-
-console.log(cliente1.cuentaCorriente.retiroEnCuenta(1500)); 
+console.log(cliente1, cliente1.cuentaCorriente);
 
 
-
+console.log(cuentaCorriente.cantidadCuentas);
 
 

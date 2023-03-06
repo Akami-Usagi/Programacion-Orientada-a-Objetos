@@ -1,12 +1,14 @@
-class cuentaCorriente{
+export class cuentaCorriente{
     numero;
     saldo;
     agencia;
+    static cantidadCuentas = 0;
 
-    constructor(){
-        this.saldo = 0;
-        this.numero = "";
-        this.agencia = "";
+    constructor(saldoCuenta, numeroCuenta, agenciaCuenta){
+        this.saldo = saldoCuenta;
+        this.numero = numeroCuenta;
+        this.agencia = agenciaCuenta;
+        cuentaCorriente.cantidadCuentas++;
     }
 
     depositoEnCuenta(valor){
@@ -30,5 +32,16 @@ class cuentaCorriente{
     verSaldo(){
         return this.saldo
     }
+
+    tranferencia(valor, cuentaDestino){
+        if (this.saldo >= valor) {
+            this.retiroEnCuenta(valor);
+            cuentaDestino.depositoEnCuenta(valor)
+        }else{
+            console.log("saldo insuficiente para hacer la tranferencia");
+        }
+    }
+
+    
 
 }
